@@ -1,0 +1,23 @@
+server:
+  undertow:
+    accesslog:
+      dir: ./logs
+      enabled: true
+      pattern: '%t %a "%r" %q %s (%D ms)'
+      prefix: ${spring.application.name}
+  servlet:
+    context-path: /${spring.application.name}
+    session:
+      timeout: 30m
+
+spring:
+  application:
+    name: catch-barrage-public
+    version: '@project.version@'
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 120MB
+      max-request-size: 120MB
+
